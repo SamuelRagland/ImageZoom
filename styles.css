@@ -7,7 +7,7 @@ body {
     min-height: 100vh;
     background: url(./img/sebastian-svenson-d2w-_1LJioQ-unsplash.jpg) no-repeat center center fixed;
     background-color: hsl(214, 34%, 13%);
-/*     background-size: cover; */
+    background-size: cover;
     -webkit-animation: zoom linear view();
     -moz-animation: zoom linear view();
     -o-animation: zoom linear view();
