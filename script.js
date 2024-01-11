@@ -231,7 +231,6 @@ canvas.addEventListener('mousemove', function(e) {
 });
 
 document.addEventListener('touchmove', function(e) {
-    console.log(e.changedTouches[0].clientX)
     if (!gameRunning) return;
 
     mouse = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
@@ -266,11 +265,6 @@ window.addEventListener('resize', function() {
     canvas.height = window.innerHeight;
 });
 
-
-document.addEventListener('touchmove', function(e) {
-    console.log(e.changedTouches[0].clientX)
-
-})
 // let lastScroll = 0;
 // let allowScroll = true;
 // const bg = document.querySelector('.container');
