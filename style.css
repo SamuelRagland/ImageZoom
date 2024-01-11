@@ -1,0 +1,134 @@
+/* 
+
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100vw;
+}
+
+.column, .product-info {
+    flex: 1 0 100%;
+}
+
+.product-info{
+    background-color: #f1f1f1;
+    padding: 6em;
+    text-align: center;
+}
+
+.column {
+    flex-basis: 2;
+}
+
+@media (min-width: 600px) {
+    .column, .product-info {
+        flex: 1;
+    }
+}
+
+.column {
+    max-width: 100%;
+    height: auto;
+}
+
+.column >span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("img/sebastian-svenson-d2w-_1LJioQ-unsplash.jpg");
+    background-size: cover;
+} */
+
+*>*{
+    margin: 0;
+}
+
+#controls {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding-inline: 1em;
+}
+
+.button {
+    background: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: black;
+    padding: .5em 1em;
+}
+
+#resumeButton {
+    display: none;
+}
+
+#restartButton {
+    display: none;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+}
+
+#timer {
+    position: absolute;
+    top: 10px;
+    right: 50%;
+    color: white;
+    transform: translate(50%, 0);
+}
+
+canvas {
+    background: linear-gradient(45deg, hsla(180, 100%, 50%, .5), hsla(200, 100%, 50%, .5), hsla(220, 100%, 50%, .5),hsla(240, 100%, 50%, .5) );
+	background-size: 200% 200%;
+    background-position: center;
+    display: block;
+    animation: bg 10s ease infinite forwards;
+}
+
+@keyframes bg {
+    0% {
+		background-position: 0% 0%;
+	}
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+#endScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    font-size: 2em;
+    color: white;
+    background: rgba(0, 0, 0, .5);
+    gap: 1em;
+}
+
+#restartButton.end {
+    position: static;
+    display: block;
+}
