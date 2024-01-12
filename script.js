@@ -30,6 +30,13 @@ restartButtonEnd.addEventListener('click', restartGame);
 
 timerDisplay.textContent = timeRemaining;
 
+document.addEventListener('touchstart', function(e) {
+// is not near edge of view, exit.
+if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+// prevent swipe to navigate gesture.
+e. preventDefault();
+});
+
 function startGame() {
     startButton.style.display = 'none';
     endScreen.style.display = 'none';
