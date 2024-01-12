@@ -1,44 +1,3 @@
-/* 
-
-.hero {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 100vw;
-}
-
-.column, .product-info {
-    flex: 1 0 100%;
-}
-
-.product-info{
-    background-color: #f1f1f1;
-    padding: 6em;
-    text-align: center;
-}
-
-.column {
-    flex-basis: 2;
-}
-
-@media (min-width: 600px) {
-    .column, .product-info {
-        flex: 1;
-    }
-}
-
-.column {
-    max-width: 100%;
-    height: auto;
-}
-
-.column >span {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-image: url("img/sebastian-svenson-d2w-_1LJioQ-unsplash.jpg");
-    background-size: cover;
-} */
-
 *>*{
     margin: 0;
 }
@@ -131,4 +90,30 @@ canvas {
 #restartButton.end {
     position: static;
     display: block;
+}
+
+@media screen and (max-width: 1000px) {
+    canvas {
+        width: 100vw;
+        height: 100svh;
+    }
+
+    #controls {
+        flex-direction: column;
+        right: 10px;
+    }
+
+    .button {
+        font-size: 2em;
+    }
+
+    #timer {
+        font-size: 3em;
+        left: 30%;
+    }
+
+    #score {
+        font-size: 3em;
+        left: 10px;
+    }
 }
