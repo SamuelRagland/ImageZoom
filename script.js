@@ -256,7 +256,7 @@ function animate() {
             // If the particle is a star, add 10 to the score
             // Otherwise, add 1
             score += particle.isStar ? 10 : 1;
-            particle.isStar ? starRemovedSound.play() : console.log('Particle removed');
+            particle.isStar ? starRemovedSound.play() : null;
             return false;
         }
 
@@ -269,7 +269,6 @@ function animate() {
             const particleRemovedSound = new Audio('particleRemoved.wav');
             particleRemovedSound.volume = 0.06;
             particleRemovedSound.play(); // Play sound
-            console.log('Particle removed');
         }
     // score += removedParticles;
     scoreBoard.textContent = score;
