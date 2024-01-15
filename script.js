@@ -267,11 +267,13 @@ function animate() {
     });
     
     const removedParticles = initialLength - particles.length;
+        if (window.innerWidth > 1000) {
         for (let i = 0; i < removedParticles; i++) {
             const particleRemovedSound = new Audio('particleRemoved.wav');
             particleRemovedSound.volume = 0.06;
             particleRemovedSound.play(); // Play sound
         }
+    }
     // score += removedParticles;
     scoreBoard.textContent = score;
 }
