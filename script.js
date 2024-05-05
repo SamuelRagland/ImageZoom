@@ -37,7 +37,7 @@ restartButtonEnd.addEventListener('click', restartGame);
 
 timerDisplay.textContent = timeRemaining;
 
-async function startGame() {
+function startGame() {
     title.style.display = 'none';
     startButton.style.display = 'none';
     endScreen.style.display = 'none';
