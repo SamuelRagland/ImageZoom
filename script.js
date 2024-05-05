@@ -62,7 +62,7 @@ function startGame() {
         );
 }
 
-async function endGame() {
+function endGame() {
     if (score > localStorage.getItem('HighScore')) {
         localStorage.setItem('HighScore', score);
     }
@@ -75,7 +75,7 @@ async function endGame() {
     startButton.disabled = false;
 }
 
-async function restartGame() {
+function restartGame() {
     gameRunning = false;
     clearInterval(gameTimer);
     clearInterval(particleAdder);
@@ -89,7 +89,7 @@ async function restartGame() {
     resumeButton.style.display = 'none';
 }
 
-async function pauseGame() {
+function pauseGame() {
     gameRunning = false;
     clearInterval(gameTimer);
     clearInterval(particleAdder);
@@ -97,7 +97,7 @@ async function pauseGame() {
     resumeButton.style.display = 'block';
 }
 
-async function resumeGame() {
+function resumeGame() {
     gameRunning = true;
     particleAdder = setInterval(addParticle, 100);
     if (gameTimer) {
