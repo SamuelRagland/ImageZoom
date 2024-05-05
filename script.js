@@ -100,13 +100,17 @@ function pauseGame() {
 function resumeGame() {
     gameRunning = true;
     particleAdder = setInterval(addParticle, 100);
-    gameTimer = setInterval(() => {
-        timeRemaining--;
-        timerDisplay.textContent = timeRemaining;
-        if (timeRemaining <= 0) endGame();
-    }, 1000); // Update the timer every second
-    pauseButton.style.display = 'block';
-    resumeButton.style.display = 'none';
+    if (gameTimer) {
+        clearInterval(gameTimer);
+    } else {
+        gameTimer = setInterval(() => {
+            timeRemaining--;
+            timerDisplay.textContent = timeRemaining;
+            if (timeRemaining <= 0) endGame();
+        }, 1000); // Update the timer every second
+        pauseButton.style.display = 'block';
+        resumeButton.style.display = 'none';
+    }
 }
 
 class Particle {
