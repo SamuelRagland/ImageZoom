@@ -37,7 +37,7 @@ restartButtonEnd.addEventListener('click', restartGame);
 
 timerDisplay.textContent = timeRemaining;
 
-function startGame() {
+async function startGame() {
     title.style.display = 'none';
     startButton.style.display = 'none';
     endScreen.style.display = 'none';
@@ -62,7 +62,7 @@ function startGame() {
         );
 }
 
-function endGame() {
+async function endGame() {
     if (score > localStorage.getItem('HighScore')) {
         localStorage.setItem('HighScore', score);
     }
@@ -75,7 +75,7 @@ function endGame() {
     startButton.disabled = false;
 }
 
-function restartGame() {
+async function restartGame() {
     gameRunning = false;
     clearInterval(gameTimer);
     clearInterval(particleAdder);
@@ -89,7 +89,7 @@ function restartGame() {
     resumeButton.style.display = 'none';
 }
 
-function pauseGame() {
+async function pauseGame() {
     gameRunning = false;
     clearInterval(gameTimer);
     clearInterval(particleAdder);
@@ -97,7 +97,7 @@ function pauseGame() {
     resumeButton.style.display = 'block';
 }
 
-function resumeGame() {
+async function resumeGame() {
     gameRunning = true;
     particleAdder = setInterval(addParticle, 100);
     if (gameTimer) {
