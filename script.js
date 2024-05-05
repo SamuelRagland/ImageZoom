@@ -41,10 +41,10 @@ function startGame() {
     title.style.display = 'none';
     startButton.style.display = 'none';
     endScreen.style.display = 'none';
-    resumeScreen.style.display = 'none';
+    // resumeScreen.style.display = 'none';
     restartButton.style.display = 'block';
     pauseButton.style.display ='block';
-    if (gameRunning) return;
+    if (gameRunning !== false) return;
     particles = Array.from({ length: 100 }, () => new Particle());
     obstacles = Array.from({ length: 10 }, () => new Obstacle());
     gameRunning = true;
