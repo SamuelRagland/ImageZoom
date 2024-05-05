@@ -69,6 +69,7 @@ function endGame() {
 }
 
 function restartGame() {
+    gameRunning = false;
     clearInterval(gameTimer);
     clearInterval(particleAdder);
     score = 0;
@@ -76,8 +77,9 @@ function restartGame() {
     scoreBoard.textContent = score;
     particles = []; // Reset the particles
     obstacles = []; // Reset the obstacles
-    gameRunning = false;
     startGame();
+    pauseButton.style.display = 'block';
+    resumeButton.style.display = 'none';
 }
 
 function pauseGame() {
