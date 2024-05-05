@@ -1,7 +1,7 @@
 let gameLength = 15;
 let gameRunning = false;
-let gameTimer = null;
-let particleAdder = null;
+let gameTimer = undefined;
+let particleAdder = undefined;
 let timeRemaining = gameLength;
 let mouse = { x: null, y: null };
 let addedParticles = 0;
@@ -48,11 +48,16 @@ function startGame() {
     gameRunning = true;
     timerDisplay.textContent = timeRemaining;
     particleAdder = setInterval(addParticle, 100);
-    gameTimer = setInterval(() => {
-        timeRemaining--;
-        timerDisplay.textContent = timeRemaining;
-        if (timeRemaining <= 0) endGame();
-    }, 1000); // Update the timer every second
+    if (intervalId) {
+        clearInterval(intervalId);
+    } else {
+        // Update the timer every second
+        intervalId = setInterval(gameTimer = setInterval(() => {
+            timeRemaining--;
+            timerDisplay.textContent = timeRemaining;
+            if (timeRemaining <= 0) endGame();
+        }, 1000); 
+        );
 }
 
 function endGame() {
