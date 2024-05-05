@@ -60,6 +60,7 @@ function startGame() {
             if (timeRemaining <= 0) endGame();
         }, 1000); 
         );
+    };
 }
 
 function endGame() {
