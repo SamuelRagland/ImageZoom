@@ -41,20 +41,19 @@ function startGame() {
     title.style.display = 'none';
     startButton.style.display = 'none';
     endScreen.style.display = 'none';
-    // resumeScreen.style.display = 'none';
+    resumeScreen.style.display = 'none';
     restartButton.style.display = 'block';
     pauseButton.style.display ='block';
-    if (gameRunning !== false) return;
+    if (gameRunning) return;
     particles = Array.from({ length: 100 }, () => new Particle());
     obstacles = Array.from({ length: 10 }, () => new Obstacle());
     gameRunning = true;
     timerDisplay.textContent = timeRemaining;
     particleAdder = setInterval(addParticle, 100);
-    if (intervalId) {
-        clearInterval(intervalId);
-    }
+    clearInterval(gameTimer);
+    clearInterval(particleAdder);
     // Update the timer every second
-    intervalId = setInterval(() => {
+    gameTimer = setInterval(() => {
         timeRemaining--;
         timerDisplay.textContent = timeRemaining;
         if (timeRemaining <= 0) endGame();
