@@ -41,9 +41,9 @@ function startGame() {
     title.style.display = 'none';
     startButton.style.display = 'none';
     endScreen.style.display = 'none';
-    resumeScreen.style.display = 'none';
+    // resumeScreen.style.display = 'none';
     restartButton.style.display = 'block';
-    pauseButton.style.display ='block';
+    pauseButton.style.display = 'block';
     if (gameRunning) return;
     particles = Array.from({ length: 100 }, () => new Particle());
     obstacles = Array.from({ length: 10 }, () => new Obstacle());
@@ -53,11 +53,11 @@ function startGame() {
     clearInterval(gameTimer);
     clearInterval(particleAdder);
     // Update the timer every second
-    gameTimer = setInterval(() => {
+     gameTimer = setInterval(() => {
         timeRemaining--;
         timerDisplay.textContent = timeRemaining;
         if (timeRemaining <= 0) endGame();
-    }, 1000);
+    }, 1000); // Update the timer every second
 }
 
 function endGame() {
@@ -97,10 +97,11 @@ function pauseGame() {
 
 function resumeGame() {
     gameRunning = true;
-    particleAdder = setInterval(addParticle, 100);
     if (gameTimer) {
         clearInterval(gameTimer);
+        clearInterval(particleAdder);
     } else {
+        particleAdder = setInterval(addParticle, 100);
         gameTimer = setInterval(() => {
             timeRemaining--;
             timerDisplay.textContent = timeRemaining;
