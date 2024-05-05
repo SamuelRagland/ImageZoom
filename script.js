@@ -1,7 +1,7 @@
 let gameLength = 15;
 let gameRunning = false;
-let gameTimer = undefined;
-let particleAdder = undefined;
+let gameTimer = null;
+let particleAdder = null;
 let timeRemaining = gameLength;
 let mouse = { x: null, y: null };
 let addedParticles = 0;
@@ -41,19 +41,14 @@ function startGame() {
     title.style.display = 'none';
     startButton.style.display = 'none';
     endScreen.style.display = 'none';
-    // resumeScreen.style.display = 'none';
     restartButton.style.display = 'block';
-    pauseButton.style.display = 'block';
     if (gameRunning) return;
     particles = Array.from({ length: 100 }, () => new Particle());
     obstacles = Array.from({ length: 10 }, () => new Obstacle());
     gameRunning = true;
     timerDisplay.textContent = timeRemaining;
     particleAdder = setInterval(addParticle, 100);
-    clearInterval(gameTimer);
-    clearInterval(particleAdder);
-    // Update the timer every second
-     gameTimer = setInterval(() => {
+    gameTimer = setInterval(() => {
         timeRemaining--;
         timerDisplay.textContent = timeRemaining;
         if (timeRemaining <= 0) endGame();
@@ -74,7 +69,6 @@ function endGame() {
 }
 
 function restartGame() {
-    gameRunning = false;
     clearInterval(gameTimer);
     clearInterval(particleAdder);
     score = 0;
@@ -82,6 +76,7 @@ function restartGame() {
     scoreBoard.textContent = score;
     particles = []; // Reset the particles
     obstacles = []; // Reset the obstacles
+    gameRunning = false;
     startGame();
     pauseButton.style.display = 'block';
     resumeButton.style.display = 'none';
@@ -97,19 +92,14 @@ function pauseGame() {
 
 function resumeGame() {
     gameRunning = true;
-    if (gameTimer) {
-        clearInterval(gameTimer);
-        clearInterval(particleAdder);
-    } else {
-        particleAdder = setInterval(addParticle, 100);
-        gameTimer = setInterval(() => {
-            timeRemaining--;
-            timerDisplay.textContent = timeRemaining;
-            if (timeRemaining <= 0) endGame();
-        }, 1000); // Update the timer every second
-        pauseButton.style.display = 'block';
-        resumeButton.style.display = 'none';
-    }
+    particleAdder = setInterval(addParticle, 100);
+    gameTimer = setInterval(() => {
+        timeRemaining--;
+        timerDisplay.textContent = timeRemaining;
+        if (timeRemaining <= 0) endGame();
+    }, 1000); // Update the timer every second
+    pauseButton.style.display = 'block';
+    resumeButton.style.display = 'none';
 }
 
 class Particle {
