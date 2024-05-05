@@ -52,15 +52,13 @@ function startGame() {
     particleAdder = setInterval(addParticle, 100);
     if (intervalId) {
         clearInterval(intervalId);
-    } else {
-        // Update the timer every second
-        intervalId = setInterval(gameTimer = setInterval(() => {
-            timeRemaining--;
-            timerDisplay.textContent = timeRemaining;
-            if (timeRemaining <= 0) endGame();
-        }, 1000); 
-        );
-    };
+    }
+    // Update the timer every second
+    intervalId = setInterval(() => {
+        timeRemaining--;
+        timerDisplay.textContent = timeRemaining;
+        if (timeRemaining <= 0) endGame();
+    }, 1000);
 }
 
 function endGame() {
