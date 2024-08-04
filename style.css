@@ -26,6 +26,11 @@
     padding: .5em 1em;
 }
 
+#startButtonMenu {
+    color: #333333;
+    text-decoration: underline;
+}
+
 #resumeButton {
     display: none;
 }
