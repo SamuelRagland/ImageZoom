@@ -18,6 +18,7 @@ const ctx = canvas.getContext('2d');
 const scoreBoard = document.getElementById('score');
 const timerDisplay = document.getElementById('timer');
 const startButton = document.getElementById('startButton');
+const startButtonMenu = document.getElementById('startButtonMenu');
 const restartButton = document.getElementById('restartButton');
 const pauseButton = document.getElementById('pauseButton');
 const resumeButton = document.getElementById('resumeButton');
@@ -32,6 +33,7 @@ const starRemovedSound = new Audio('starRemoved.wav');
 resumeButton.addEventListener('click', resumeGame);
 pauseButton.addEventListener('click', pauseGame);
 startButton.addEventListener('click', startGame);
+startButtonMenu.addEventListener('click', startGame);
 restartButton.addEventListener('click', restartGame);
 restartButtonEnd.addEventListener('click', restartGame);
 
