@@ -28,7 +28,7 @@
 
 #startButtonMenu {
     color: #333333;
-    text-decoration: underline;
+    cursor: pointer;
 }
 
 #resumeButton {
